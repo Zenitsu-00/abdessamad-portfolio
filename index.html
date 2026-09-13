@@ -1,0 +1,3096 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Abdessamad Ait Taghzant | Graphic Designer</title>
+
+    <link rel="icon" type="image/png" href="my logo white.png">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* ===================================
+           NAVBAR LOGO IMAGE
+        =================================== */
+
+        .logo-icon{
+            width:62px;
+            height:62px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background:transparent !important;
+            border-radius:0 !important;
+            overflow:hidden;
+            flex-shrink:0;
+        }
+
+        .logo-icon img{
+            width:100%;
+            height:100%;
+            object-fit:contain;
+            display:block;
+        }
+
+        /* ===================================
+           CLICKABLE PORTFOLIO COVERS
+        =================================== */
+
+        .gallery-cover{
+            cursor:pointer;
+        }
+
+        /* ===================================
+           CATEGORY GALLERIES / MODALS
+        =================================== */
+
+        .portfolio-modal{
+            position:fixed;
+            inset:0;
+            width:100%;
+            height:100%;
+            background:rgba(3,25,52,.78);
+            backdrop-filter:blur(7px);
+            z-index:99999;
+            display:none;
+            overflow-y:auto;
+            padding:35px;
+        }
+
+        .portfolio-modal.show{
+            display:block;
+        }
+
+        .portfolio-modal-content{
+            position:relative;
+            width:100%;
+            max-width:1400px;
+            min-height:90vh;
+            margin:auto;
+            background:#ffffff;
+            border-radius:25px;
+            padding:65px;
+            box-shadow:0 30px 90px rgba(0,0,0,.30);
+            animation:galleryOpen .35s ease;
+        }
+
+        @keyframes galleryOpen{
+            from{
+                opacity:0;
+                transform:translateY(25px) scale(.98);
+            }
+
+            to{
+                opacity:1;
+                transform:translateY(0) scale(1);
+            }
+        }
+
+        .portfolio-modal-close{
+            position:absolute;
+            right:25px;
+            top:20px;
+            width:50px;
+            height:50px;
+            border:none;
+            border-radius:50%;
+            background:#edf6fd;
+            color:#075fae;
+            font-size:32px;
+            line-height:1;
+            cursor:pointer;
+            transition:.3s;
+        }
+
+        .portfolio-modal-close:hover{
+            background:#075fae;
+            color:white;
+            transform:rotate(90deg);
+        }
+
+        .portfolio-gallery-header{
+            margin-bottom:40px;
+            max-width:750px;
+        }
+
+        .portfolio-gallery-header > span{
+            color:#075fae;
+            font-size:12px;
+            font-weight:800;
+            letter-spacing:2px;
+        }
+
+        .portfolio-gallery-header h2{
+            font-size:48px;
+            line-height:1.1;
+            color:#082b5b;
+            margin:10px 0 15px;
+        }
+
+        .portfolio-gallery-header h2 strong{
+            color:#0871c9;
+        }
+
+        .portfolio-gallery-header p{
+            color:#64788d;
+            font-size:16px;
+        }
+
+        .portfolio-gallery-grid{
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:25px;
+        }
+
+        .portfolio-gallery-item{
+            overflow:hidden;
+            border-radius:17px;
+            border:1px solid #dce7f1;
+            background:#ffffff;
+            transition:.35s;
+        }
+
+        .portfolio-gallery-item:hover{
+            transform:translateY(-6px);
+            box-shadow:0 20px 45px rgba(8,54,100,.15);
+        }
+
+        .portfolio-gallery-item img{
+            width:100%;
+            height:340px;
+            object-fit:cover;
+            display:block;
+            transition:.4s;
+        }
+
+        .portfolio-gallery-item:hover img{
+            transform:scale(1.03);
+        }
+
+        .portfolio-gallery-item > div{
+            padding:20px;
+        }
+
+        .portfolio-gallery-item span{
+            font-size:10px;
+            font-weight:bold;
+            letter-spacing:2px;
+            color:#0871c9;
+        }
+
+        .portfolio-gallery-item h3{
+            margin-top:5px;
+            color:#082b5b;
+            font-size:19px;
+        }
+
+        @media(max-width:1000px){
+            .portfolio-gallery-grid{
+                grid-template-columns:repeat(2,1fr);
+            }
+        }
+
+        @media(max-width:650px){
+            .portfolio-modal{
+                padding:10px;
+            }
+
+            .portfolio-modal-content{
+                padding:60px 20px 30px;
+            }
+
+            .portfolio-gallery-header h2{
+                font-size:34px;
+            }
+
+            .portfolio-gallery-grid{
+                grid-template-columns:1fr;
+            }
+
+            .portfolio-gallery-item img{
+                height:300px;
+            }
+        }
+    
+
+        /* ===================================
+           NEW FEATURES: DARK MODE / TOOLS /
+           SEARCH / CONTACT / CTA / ANIMATIONS
+        =================================== */
+
+        :root{
+            --surface:#ffffff;
+            --surface-soft:#f5f9fd;
+            --surface-blue:#eef6fd;
+            --ink:#082b5b;
+            --muted:#64788d;
+            --accent:#075fae;
+            --accent-light:#1687d8;
+            --line:#dce7f1;
+        }
+
+        body{
+            transition:background .3s ease, color .3s ease;
+        }
+
+        /* DARK MODE */
+        body.dark-mode{
+            --surface:#081525;
+            --surface-soft:#0d1d31;
+            --surface-blue:#0c2038;
+            --ink:#f2f7ff;
+            --muted:#a9bdd0;
+            --line:#1e3a57;
+
+            background:#07111d;
+            color:#edf5ff;
+        }
+
+        body.dark-mode header,
+        body.dark-mode .portfolio,
+        body.dark-mode .about,
+        body.dark-mode .contact{
+            background:#07111d !important;
+        }
+
+        body.dark-mode .services{
+            background:#0a192a !important;
+        }
+
+        body.dark-mode .project,
+        body.dark-mode .service-card,
+        body.dark-mode .portfolio-modal-content,
+        body.dark-mode .contact-form-card,
+        body.dark-mode .tool-card{
+            background:#0d1d31 !important;
+            border-color:#1e3a57 !important;
+            color:#edf5ff;
+        }
+
+        body.dark-mode .project-info h3,
+        body.dark-mode .portfolio-gallery-header h2,
+        body.dark-mode .portfolio-gallery-item h3,
+        body.dark-mode .about-content h2,
+        body.dark-mode .section-heading h2,
+        body.dark-mode .center-heading h2,
+        body.dark-mode .tool-card h3,
+        body.dark-mode .contact-form-card h3{
+            color:#f2f7ff !important;
+        }
+
+        body.dark-mode .portfolio-gallery-item,
+        body.dark-mode .portfolio-gallery-item img{
+            background:#10233a !important;
+            border-color:#1e3a57 !important;
+        }
+
+        body.dark-mode .portfolio-menu button,
+        body.dark-mode .portfolio-search input{
+            background:#0d1d31;
+            color:#dcecff;
+            border-color:#1e3a57;
+        }
+
+        body.dark-mode .portfolio-menu button.active,
+        body.dark-mode .portfolio-menu button:hover{
+            background:#1687d8;
+            color:#fff;
+        }
+
+        /* DARK MODE TOGGLE */
+        .theme-toggle{
+            width:46px;
+            height:46px;
+            border-radius:50%;
+            border:1px solid #dce7f1;
+            background:#fff;
+            color:#075fae;
+            cursor:pointer;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:19px;
+            transition:.25s ease;
+            flex-shrink:0;
+        }
+
+        .theme-toggle:hover{
+            transform:translateY(-2px);
+            box-shadow:0 8px 22px rgba(7,95,174,.16);
+        }
+
+        body.dark-mode .theme-toggle{
+            background:#0d1d31;
+            border-color:#1e3a57;
+            color:#7bc7ff;
+        }
+
+        .nav-actions{
+            display:flex;
+            align-items:center;
+            gap:10px;
+        }
+
+        /* DOWNLOAD CV */
+        .cv-button{
+            display:inline-flex;
+            align-items:center;
+            gap:8px;
+            padding:14px 20px;
+            border-radius:11px;
+            background:#fff;
+            border:1px solid #b9d2e8;
+            color:#082b5b;
+            font-size:14px;
+            font-weight:700;
+            transition:.25s ease;
+        }
+
+        .cv-button:hover{
+            transform:translateY(-2px);
+            border-color:#1687d8;
+            box-shadow:0 8px 25px rgba(7,95,174,.16);
+        }
+
+        body.dark-mode .cv-button{
+            background:#0d1d31;
+            color:#e9f5ff;
+            border-color:#1e3a57;
+        }
+
+        /* SEARCH */
+        .portfolio-toolbar{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:20px;
+            flex-wrap:wrap;
+            margin-bottom:30px;
+        }
+
+        .portfolio-toolbar .portfolio-menu{
+            margin-bottom:0;
+        }
+
+        .portfolio-search{
+            position:relative;
+            min-width:280px;
+            flex:0 1 380px;
+        }
+
+        .portfolio-search input{
+            width:100%;
+            height:46px;
+            border:1px solid #dce7f1;
+            border-radius:30px;
+            padding:0 45px 0 18px;
+            outline:none;
+            color:#173958;
+            background:#fff;
+            font-size:14px;
+            transition:.25s ease;
+        }
+
+        .portfolio-search input:focus{
+            border-color:#1687d8;
+            box-shadow:0 0 0 4px rgba(22,135,216,.10);
+        }
+
+        .portfolio-search span{
+            position:absolute;
+            right:16px;
+            top:50%;
+            transform:translateY(-50%);
+            color:#7b91a6;
+            pointer-events:none;
+        }
+
+        .no-results{
+            display:none;
+            width:100%;
+            padding:35px;
+            text-align:center;
+            border:1px dashed #b9d2e8;
+            border-radius:16px;
+            color:#6a8095;
+            background:#f7fbff;
+        }
+
+        body.dark-mode .no-results{
+            background:#0d1d31;
+            border-color:#1e3a57;
+            color:#9db3c7;
+        }
+
+        /* TOOLS SECTION */
+        .tools-section{
+            padding:100px 0;
+            background:#f7fbff;
+        }
+
+        body.dark-mode .tools-section{
+            background:#091827;
+        }
+
+        .tools-grid{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:20px;
+            margin-top:40px;
+        }
+
+        .tool-card{
+            background:#fff;
+            border:1px solid #dce7f1;
+            border-radius:18px;
+            padding:28px;
+            transition:.3s ease;
+            position:relative;
+            overflow:hidden;
+        }
+
+        .tool-card::before{
+            content:"";
+            position:absolute;
+            left:0;
+            top:0;
+            width:4px;
+            height:100%;
+            background:linear-gradient(#075fae,#1687d8);
+        }
+
+        .tool-card:hover{
+            transform:translateY(-6px);
+            box-shadow:0 18px 40px rgba(7,54,100,.10);
+        }
+
+        .tool-icon{
+            width:52px;
+            height:52px;
+            border-radius:14px;
+            background:#eaf5fd;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:#075fae;
+            font-weight:900;
+            margin-bottom:18px;
+            font-size:18px;
+        }
+
+        body.dark-mode .tool-icon{
+            background:#122b45;
+            color:#7bc7ff;
+        }
+
+        .tool-card h3{
+            color:#082b5b;
+            margin-bottom:7px;
+            font-size:19px;
+        }
+
+        .tool-card p{
+            color:#6c8194;
+            font-size:14px;
+        }
+
+        /* WHATSAPP CTA */
+        .whatsapp-cta{
+            position:fixed;
+            right:24px;
+            bottom:24px;
+            z-index:9999;
+            display:flex;
+            align-items:center;
+            gap:11px;
+            padding:14px 19px;
+            background:#25D366;
+            color:#fff;
+            border-radius:999px;
+            font-weight:800;
+            font-size:14px;
+            box-shadow:0 12px 32px rgba(37,211,102,.30);
+            transition:.25s ease;
+        }
+
+        .whatsapp-cta:hover{
+            transform:translateY(-4px) scale(1.02);
+            box-shadow:0 16px 38px rgba(37,211,102,.38);
+        }
+
+        .whatsapp-cta .wa-dot{
+            width:10px;
+            height:10px;
+            border-radius:50%;
+            background:#fff;
+            box-shadow:0 0 0 5px rgba(255,255,255,.16);
+        }
+
+        /* CONTACT FORM */
+        .contact-form-section{
+            padding:100px 0;
+            background:#f7fbff;
+        }
+
+        body.dark-mode .contact-form-section{
+            background:#091827;
+        }
+
+        .contact-form-wrap{
+            display:grid;
+            grid-template-columns:.9fr 1.1fr;
+            gap:55px;
+            align-items:start;
+        }
+
+        .contact-form-intro h2{
+            font-size:46px;
+            line-height:1.1;
+            color:#082b5b;
+            margin:10px 0 18px;
+        }
+
+        body.dark-mode .contact-form-intro h2{
+            color:#f2f7ff;
+        }
+
+        .contact-form-intro p{
+            color:#6b8194;
+            max-width:520px;
+        }
+
+        .contact-form-card{
+            background:#fff;
+            border:1px solid #dce7f1;
+            border-radius:20px;
+            padding:32px;
+            box-shadow:0 18px 45px rgba(7,54,100,.08);
+        }
+
+        .contact-form-grid{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:15px;
+        }
+
+        .contact-field{
+            display:flex;
+            flex-direction:column;
+            gap:7px;
+            margin-bottom:15px;
+        }
+
+        .contact-field.full{
+            grid-column:1 / -1;
+        }
+
+        .contact-field label{
+            font-size:12px;
+            font-weight:800;
+            color:#5f758b;
+            letter-spacing:.4px;
+        }
+
+        .contact-field input,
+        .contact-field select,
+        .contact-field textarea{
+            width:100%;
+            border:1px solid #dce7f1;
+            border-radius:12px;
+            padding:13px 14px;
+            outline:none;
+            font:inherit;
+            background:#fff;
+            color:#173958;
+        }
+
+        body.dark-mode .contact-field input,
+        body.dark-mode .contact-field select,
+        body.dark-mode .contact-field textarea{
+            background:#091827;
+            color:#edf5ff;
+            border-color:#1e3a57;
+        }
+
+        .contact-field input:focus,
+        .contact-field select:focus,
+        .contact-field textarea:focus{
+            border-color:#1687d8;
+            box-shadow:0 0 0 4px rgba(22,135,216,.09);
+        }
+
+        .contact-submit{
+            width:100%;
+            border:none;
+            border-radius:12px;
+            padding:15px 20px;
+            background:linear-gradient(135deg,#075fae,#1687d8);
+            color:#fff;
+            font-weight:800;
+            cursor:pointer;
+            transition:.25s ease;
+        }
+
+        .contact-submit:hover{
+            transform:translateY(-2px);
+            box-shadow:0 10px 28px rgba(7,95,174,.25);
+        }
+
+        /* LIGHTBOX COUNTER ENHANCEMENT */
+        .lightbox-counter{
+            font-weight:800;
+            letter-spacing:.5px;
+        }
+
+        /* SCROLL ANIMATIONS */
+        .reveal{
+            opacity:0;
+            transform:translateY(28px);
+            transition:
+                opacity .7s ease,
+                transform .7s ease;
+        }
+
+        .reveal.visible{
+            opacity:1;
+            transform:translateY(0);
+        }
+
+        .reveal-delay-1{ transition-delay:.08s; }
+        .reveal-delay-2{ transition-delay:.16s; }
+        .reveal-delay-3{ transition-delay:.24s; }
+
+        @media(max-width:1000px){
+            .tools-grid{
+                grid-template-columns:repeat(2,1fr);
+            }
+
+            .contact-form-wrap{
+                grid-template-columns:1fr;
+            }
+
+            .nav-actions .cv-button{
+                display:none;
+            }
+        }
+
+        @media(max-width:700px){
+            .tools-grid{
+                grid-template-columns:1fr;
+            }
+
+            .portfolio-search{
+                min-width:100%;
+                flex:1 1 100%;
+            }
+
+            .contact-form-grid{
+                grid-template-columns:1fr;
+            }
+
+            .contact-field.full{
+                grid-column:auto;
+            }
+
+            .contact-form-intro h2{
+                font-size:36px;
+            }
+
+            .whatsapp-cta{
+                right:14px;
+                bottom:14px;
+                padding:13px 16px;
+            }
+
+            .whatsapp-cta .wa-label{
+                display:none;
+            }
+        }
+
+    
+
+        /* ===================================
+           DARK MODE - HERO COMPLETE
+        =================================== */
+
+        body.dark-mode .hero{
+            background:#07111d !important;
+        }
+
+        body.dark-mode .hero-grid{
+            background:transparent !important;
+        }
+
+        body.dark-mode .hero-content h1{
+            color:#f2f7ff !important;
+        }
+
+        body.dark-mode .hero-content h1 span{
+            color:#31a7ff !important;
+        }
+
+        body.dark-mode .hero-content > p{
+            color:#a9bdd0 !important;
+        }
+
+        body.dark-mode .hero-badge{
+            background:#102b45 !important;
+            color:#7bc7ff !important;
+            border-color:#1e496d !important;
+        }
+
+        body.dark-mode .hero-badge .dot{
+            background:#31a7ff !important;
+        }
+
+        body.dark-mode .hero-stats strong{
+            color:#f2f7ff !important;
+        }
+
+        body.dark-mode .hero-stats span{
+            color:#91a9bd !important;
+        }
+
+        body.dark-mode .hero .btn-outline{
+            background:#0d1d31 !important;
+            color:#eaf5ff !important;
+            border-color:#284968 !important;
+        }
+
+        body.dark-mode .hero .btn-outline:hover{
+            background:#122b45 !important;
+            border-color:#31a7ff !important;
+        }
+
+        body.dark-mode .hero .btn-primary{
+            background:#1687d8 !important;
+            color:#fff !important;
+        }
+
+        body.dark-mode .hero-image{
+            background:#0b1d30 !important;
+        }
+
+        body.dark-mode .hero-image > img{
+            border-color:#31a7ff !important;
+            box-shadow:
+                0 0 18px rgba(49,167,255,.35),
+                0 0 45px rgba(49,167,255,.16) !important;
+        }
+
+        body.dark-mode .floating-card{
+            background:#0d1d31 !important;
+            color:#f2f7ff !important;
+            border:1px solid #1e3a57 !important;
+            box-shadow:0 18px 45px rgba(0,0,0,.35) !important;
+        }
+
+        body.dark-mode .floating-card strong{
+            color:#f2f7ff !important;
+        }
+
+        body.dark-mode .floating-card small{
+            color:#9fb4c8 !important;
+        }
+
+        body.dark-mode .floating-card > span{
+            background:#102b45 !important;
+            color:#7bc7ff !important;
+        }
+
+    
+
+        /* ===================================
+           DARK MODE - WHITE TEXT FIX
+        =================================== */
+
+        /* Navbar links */
+        body.dark-mode header nav a,
+        body.dark-mode .navbar nav a{
+            color:#ffffff !important;
+        }
+
+        body.dark-mode header nav a:hover,
+        body.dark-mode .navbar nav a:hover{
+            color:#31a7ff !important;
+        }
+
+        /* Service cards */
+        body.dark-mode .service-card h3,
+        body.dark-mode .service-card p,
+        body.dark-mode .service-card .number,
+        body.dark-mode .service-card a{
+            color:#ffffff !important;
+        }
+
+        body.dark-mode .service-card p{
+            color:#c5d3df !important;
+        }
+
+        body.dark-mode .service-card a{
+            color:#31a7ff !important;
+        }
+
+        /* Generic dark-blue text used across sections */
+        body.dark-mode .small-title,
+        body.dark-mode .section-heading p,
+        body.dark-mode .center-heading p,
+        body.dark-mode .project-info h3,
+        body.dark-mode .project-info span,
+        body.dark-mode .portfolio-gallery-item h3,
+        body.dark-mode .portfolio-gallery-item span,
+        body.dark-mode .portfolio-gallery-header p,
+        body.dark-mode .tool-card h3,
+        body.dark-mode .tool-card p,
+        body.dark-mode .about-content p,
+        body.dark-mode .skills strong,
+        body.dark-mode .skills span{
+            color:#ffffff !important;
+        }
+
+        body.dark-mode .portfolio-gallery-header p,
+        body.dark-mode .tool-card p,
+        body.dark-mode .about-content p,
+        body.dark-mode .skills span{
+            color:#c5d3df !important;
+        }
+
+        /* Footer links/text */
+        body.dark-mode footer,
+        body.dark-mode footer a,
+        body.dark-mode .footer-logo,
+        body.dark-mode .footer-menu a{
+            color:#ffffff !important;
+        }
+
+        body.dark-mode .footer-logo span,
+        body.dark-mode footer p{
+            color:#c5d3df !important;
+        }
+
+    
+
+        /* ===================================
+           DARK MODE - ABOUT SKILLS FIX
+        =================================== */
+
+        body.dark-mode .skills > div{
+            background:#10243a !important;
+            border:1px solid #244766 !important;
+            box-shadow:0 10px 25px rgba(0,0,0,.16) !important;
+        }
+
+        body.dark-mode .skills > div strong{
+            color:#ffffff !important;
+        }
+
+        body.dark-mode .skills > div span{
+            color:#a9c1d5 !important;
+        }
+
+        body.dark-mode .skills > div:hover{
+            background:#132b45 !important;
+            border-color:#31a7ff !important;
+        }
+
+    
+
+        /* ===================================
+           ADOBE TOOLS LOGOS
+        =================================== */
+
+        .adobe-tools-grid{
+            grid-template-columns:repeat(3,1fr) !important;
+        }
+
+        .adobe-logo{
+            width:58px;
+            height:58px;
+            border-radius:12px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            margin-bottom:18px;
+            font-size:25px;
+            font-weight:900;
+            letter-spacing:-1px;
+            border:2px solid currentColor;
+            box-shadow:0 10px 24px rgba(0,0,0,.08);
+        }
+
+        .adobe-logo span{
+            line-height:1;
+        }
+
+        .adobe-ai{
+            background:#2b1400;
+            color:#ff9a00;
+        }
+
+        .adobe-ps{
+            background:#001e36;
+            color:#31a8ff;
+        }
+
+        .adobe-id{
+            background:#49021f;
+            color:#ff3366;
+        }
+
+        body.dark-mode .adobe-ai{
+            background:#2b1400 !important;
+            color:#ff9a00 !important;
+            border-color:#ff9a00 !important;
+        }
+
+        body.dark-mode .adobe-ps{
+            background:#001e36 !important;
+            color:#31a8ff !important;
+            border-color:#31a8ff !important;
+        }
+
+        body.dark-mode .adobe-id{
+            background:#49021f !important;
+            color:#ff3366 !important;
+            border-color:#ff3366 !important;
+        }
+
+        @media(max-width:1000px){
+            .adobe-tools-grid{
+                grid-template-columns:repeat(2,1fr) !important;
+            }
+        }
+
+        @media(max-width:700px){
+            .adobe-tools-grid{
+                grid-template-columns:1fr !important;
+            }
+        }
+
+    
+/* =========================
+   FR / EN LANGUAGE SWITCH
+========================= */
+.language-switch{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    padding:4px;
+    border:1px solid #dce7f1;
+    background:#f5f9fd;
+    border-radius:999px;
+}
+.language-switch button{
+    border:0;
+    background:transparent;
+    color:#64788d;
+    min-width:42px;
+    height:36px;
+    padding:0 10px;
+    border-radius:999px;
+    cursor:pointer;
+    font-weight:900;
+    font-size:12px;
+    transition:.25s ease;
+}
+.language-switch button.active{
+    background:#075fae;
+    color:#fff;
+    box-shadow:0 6px 16px rgba(7,95,174,.20);
+}
+body.dark-mode .language-switch{
+    background:#0d1d31;
+    border-color:#1e3a57;
+}
+body.dark-mode .language-switch button{color:#a9bdd0}
+body.dark-mode .language-switch button.active{
+    background:#1687d8;
+    color:#fff;
+}
+@media(max-width:760px){
+    .language-switch button{min-width:38px;height:34px}
+}
+
+
+/* ===== VISIBLE FR / EN SWITCH ===== */
+.language-switch{
+    display:flex !important;
+    align-items:center;
+    justify-content:center;
+    gap:3px;
+    height:46px;
+    padding:4px 6px;
+    border:1px solid #b9d2e8;
+    background:#ffffff;
+    border-radius:999px;
+    flex-shrink:0;
+    box-shadow:0 5px 16px rgba(7,95,174,.08);
+}
+.language-switch button{
+    display:flex !important;
+    align-items:center;
+    justify-content:center;
+    min-width:38px;
+    height:36px;
+    padding:0 8px;
+    border:0;
+    border-radius:999px;
+    background:transparent;
+    color:#082b5b;
+    font-size:12px;
+    font-weight:900;
+    cursor:pointer;
+}
+.language-switch .lang-divider{
+    color:#9eb2c5;
+    font-size:11px;
+    font-weight:700;
+}
+.language-switch button.active{
+    background:#0878c9 !important;
+    color:#ffffff !important;
+}
+body.dark-mode .language-switch{
+    background:#0d1d31 !important;
+    border-color:#284968 !important;
+}
+body.dark-mode .language-switch button{
+    color:#dcecff !important;
+}
+body.dark-mode .language-switch button.active{
+    background:#1687d8 !important;
+    color:#fff !important;
+}
+@media(max-width:1150px){
+    .language-switch{height:42px}
+    .language-switch button{min-width:34px;height:32px;font-size:11px}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     TOP BAR
+========================= -->
+<div class="top-bar">
+    <div class="container top-content">
+
+        <div class="top-left">
+            <span>● GRAPHIC DESIGNER</span>
+            <span class="separator">|</span>
+            <span>Disponible pour vos projets</span>
+        </div>
+
+        <div class="top-right">
+
+            <a href="mailto:aittaghzant7@gmail.com">
+                ✉ aittaghzant7@gmail.com
+            </a>
+
+            <a href="tel:+212676953815">
+                ☎ 06 76 95 38 15
+            </a>
+
+        </div>
+
+    </div>
+</div>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+<header>
+
+    <div class="container navbar">
+
+        <a href="#accueil" class="logo">
+
+            <div class="logo-icon">
+                <img src="my logo.png"
+                     alt="Abdessamad Ait Taghzant Logo">
+            </div>
+
+            <div class="logo-text">
+                <strong>ABDESSAMAD</strong>
+                <small>AIT TAGHZANT</small>
+            </div>
+
+        </a>
+
+
+        <nav>
+
+            <a href="#accueil">Accueil</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#services">Services</a>
+            <a href="#apropos">À propos</a>
+            <a href="#contact">Contact</a>
+
+        </nav>
+
+
+        <div class="nav-actions">
+
+            <a href="cv.html" target="_blank" rel="noopener noreferrer"
+               class="cv-button">
+                ↓ Download CV
+            </a>
+
+            <div class="language-switch" id="languageSwitch" title="Changer la langue / Change language">
+                <button type="button" id="langFR" class="active" aria-label="Français">FR</button>
+                <span class="lang-divider">/</span>
+                <button type="button" id="langEN" aria-label="English">EN</button>
+            </div>
+
+            <button class="theme-toggle"
+                    id="themeToggle"
+                    type="button"
+                    aria-label="Changer le thème">
+                ☾
+            </button>
+
+            <a href="#contact-form" class="nav-button">
+                Travaillons ensemble →
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+<section class="hero" id="accueil">
+
+    <div class="container hero-grid">
+
+
+        <!-- HERO TEXT -->
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                <span class="dot"></span>
+                GRAPHIC & PACKAGING DESIGNER
+            </div>
+
+
+            <h1>
+                Je transforme vos
+                <span>idées en designs</span>
+                qui marquent.
+            </h1>
+
+
+            <p>
+                Création graphique, packaging, identité visuelle
+                et supports imprimés pour donner à votre marque
+                une image professionnelle et unique.
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a href="#portfolio" class="btn-primary">
+                    Voir mon portfolio →
+                </a>
+
+                <a href="#contact" class="btn-outline">
+                    Me contacter
+                </a>
+
+                <a href="cv.html" target="_blank" rel="noopener noreferrer"
+                   class="btn-outline">
+                    Download CV ↓
+                </a>
+
+            </div>
+
+
+            <div class="hero-stats">
+
+                <div>
+                    <strong>Design</strong>
+                    <span>Créatif</span>
+                </div>
+
+                <div>
+                    <strong>Print</strong>
+                    <span>Professionnel</span>
+                </div>
+
+                <div>
+                    <strong>100%</strong>
+                    <span>Personnalisé</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- HERO IMAGE -->
+
+        <div class="hero-image">
+
+            <img src="ChatGPT Image Sep 7, 2026, 11_30_27 PM.png"
+                 alt="Portfolio Abdessamad Ait Taghzant">
+
+            <div class="floating-card">
+                <span>✦</span>
+
+                <div>
+                    <strong>Creative Designer</strong>
+                    <small>Packaging • Branding • Print</small>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PORTFOLIO
+========================= -->
+<section class="portfolio section" id="portfolio">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div>
+
+                <div class="small-title">
+                    ● MES CRÉATIONS
+                </div>
+
+                <h2>
+                    Découvrez mon
+                    <span>portfolio.</span>
+                </h2>
+
+            </div>
+
+            <p>
+                Une sélection de mes créations graphiques,
+                projets packaging et supports de communication.
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             FILTER BUTTONS
+        ========================= -->
+
+        <div class="portfolio-toolbar">
+
+            <div class="portfolio-menu">
+<button class="filter-btn active" data-filter="all">
+                Tous
+            </button>
+
+            <button class="filter-btn" data-filter="packaging">
+                Packaging
+            </button>
+
+            <button class="filter-btn" data-filter="carte">
+                Cartes de visite
+            </button>
+
+            <button class="filter-btn" data-filter="branding">
+                Branding
+            </button>
+
+            <button class="filter-btn" data-filter="stickers">
+                Stickers
+            </button>
+            </div>
+
+            <div class="portfolio-search">
+                <input type="search"
+                       id="portfolioSearch"
+                       placeholder="Rechercher un projet..."
+                       aria-label="Rechercher un projet">
+                <span>⌕</span>
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             CATEGORY COVERS
+        ========================= -->
+
+        <div class="portfolio-grid">
+
+
+            <!-- PACKAGING COVER -->
+
+            <div class="project gallery-cover"
+                 data-category="packaging" data-search="packaging cosmétique box premium parfum emballage"
+                 onclick="openGallery('packagingModal')">
+
+                <img
+                    src="ChatGPT Image Sep 13, 2026, 06_55_01 PM.png"
+                    alt="Packaging Design"
+                >
+
+                <div class="project-info">
+
+                    <span>PACKAGING</span>
+
+                    <h3>
+                        Packaging Design
+                    </h3>
+
+                    <div class="project-arrow">
+                        →
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BUSINESS CARD COVER -->
+
+            <div class="project gallery-cover"
+                 data-category="carte" data-search="carte visite business card deco coussin puritybiodo adbi mikhwar lmaallem fire guard zahiabi"
+                 onclick="openGallery('businessModal')">
+
+                <img
+                    src="ChatGPT Image Sep 8, 2026, 12_19_13 AM.png"
+                    alt="Carte de visite"
+                >
+
+                <div class="project-info">
+
+                    <span>CARTE DE VISITE</span>
+
+                    <h3>
+                        Business Card Design
+                    </h3>
+
+                    <div class="project-arrow">
+                        →
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BRANDING COVER -->
+
+            <div class="project gallery-cover"
+                 data-category="branding" data-search="branding identité visuelle logo marque"
+                 onclick="openGallery('brandingModal')">
+
+                <img
+                    src="design3.jpg"
+                    alt="Branding"
+                >
+
+                <div class="project-info">
+
+                    <span>BRANDING</span>
+
+                    <h3>
+                        Branding & Identité Visuelle
+                    </h3>
+
+                    <div class="project-arrow">
+                        →
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- STICKERS COVER -->
+
+            <div class="project gallery-cover"
+                 data-category="stickers" data-search="stickers étiquettes labels autocollants"
+                 onclick="openGallery('stickersModal')">
+
+                <img
+                    src="design4.jpg"
+                    alt="Stickers"
+                >
+
+                <div class="project-info">
+
+                    <span>STICKERS</span>
+
+                    <h3>
+                        Sticker Design
+                    </h3>
+
+                    <div class="project-arrow">
+                        →
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <div class="no-results" id="noResults">
+            Aucun projet ne correspond à votre recherche.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===================================
+     PACKAGING GALLERY
+=================================== -->
+
+<div class="portfolio-modal" id="packagingModal" aria-hidden="true">
+
+    <div class="portfolio-modal-content">
+
+        <button class="portfolio-modal-close"
+                type="button"
+                onclick="closeGallery('packagingModal')">
+            ×
+        </button>
+
+        <div class="portfolio-gallery-header">
+
+            <span>● MES PROJETS</span>
+
+            <h2>
+                Packaging
+                <strong>Designs.</strong>
+            </h2>
+
+            <p>
+                Découvrez mes créations de packaging,
+                boîtes produits et présentations mockup.
+            </p>
+
+        </div>
+
+
+        <div class="portfolio-gallery-grid">
+
+
+            <div class="portfolio-gallery-item">
+
+                <img
+                    src="Varikosetife.png"
+                    alt="Packaging 1"
+                >
+
+                <div>
+                    <span>PACKAGING</span>
+                    <h3>Varikosetife</h3>
+                </div>
+
+            </div>
+
+
+            <div class="portfolio-gallery-item">
+
+                <img
+                    src="ZOREEL PARFUM.png"
+                    alt="Packaging 2"
+                >
+
+                <div>
+                    <span>PACKAGING</span>
+                    <h3>ZOREEL PARFUM</h3>
+                </div>
+
+            </div>
+
+
+            <div class="portfolio-gallery-item">
+
+                <img
+                    src="ALKAMAL PARFUM.png"
+                    alt="Packaging 3"
+                >
+
+                <div>
+                    <span>PACKAGING</span>
+                    <h3>ALKAMAL PARFUM</h3>
+                </div>
+
+            </div>
+
+
+            <div class="portfolio-gallery-item">
+
+                <img
+                    src="JOHD PARFUM.png"
+                    alt="Packaging 4"
+                >
+
+                <div>
+                    <span>PACKAGING</span>
+                    <h3>JOHD PARFUM</h3>
+                </div>
+
+            </div>
+
+
+            <div class="portfolio-gallery-item">
+
+                <img
+                    src="NELIA.png"
+                    alt="Packaging 5"
+                >
+
+                <div>
+                    <span>PACKAGING</span>
+                    <h3>NELIA</h3>
+                </div>
+
+            </div>
+
+
+            <div class="portfolio-gallery-item">
+
+                <img
+                    src="AGNESS PARFUM.png"
+                    alt="Packaging 6"
+                >
+
+                <div>
+                    <span>PACKAGING</span>
+                    <h3>AGNESS PARFUM</h3>
+                </div>
+
+            </div>
+
+            <div class="portfolio-gallery-item">
+
+                <img
+                    src="RAHA.png"
+                    alt="Packaging 7"
+                >
+
+                <div>
+                    <span>PACKAGING</span>
+                    <h3>RAHA</h3>
+                </div>
+
+            </div>
+
+            <div class="portfolio-gallery-item">
+
+                <img
+                    src="MINOXIFIN.png"
+                    alt="Packaging 8"
+                >
+
+                <div>
+                    <span>PACKAGING</span>
+                    <h3>MINOXIFIN</h3>
+                </div>
+
+            </div>
+
+            <div class="portfolio-gallery-item">
+
+                <img
+                    src="MINOXIDIL 5%25.png"
+                    alt="Packaging 9"
+                >
+
+                <div>
+                    <span>PACKAGING</span>
+                    <h3>MINOXIDIL 5%</h3>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ===================================
+     BUSINESS CARD GALLERY
+=================================== -->
+
+<div class="portfolio-modal" id="businessModal" aria-hidden="true">
+
+    <div class="portfolio-modal-content">
+
+        <button class="portfolio-modal-close"
+                type="button"
+                onclick="closeGallery('businessModal')">
+            ×
+        </button>
+
+        <div class="portfolio-gallery-header">
+
+            <span>● MES PROJETS</span>
+
+            <h2>
+                Business Card
+                <strong>Designs.</strong>
+            </h2>
+
+            <p>
+                Découvrez une sélection de mes créations
+                de cartes de visite.
+            </p>
+
+        </div>
+
+
+        <div class="portfolio-gallery-grid">
+
+
+            <div class="portfolio-gallery-item">
+
+                <img
+                    src="ChatGPT Image Sep 7, 2026, 12_08_06 PM.png"
+                    alt="Business Card 1"
+                >
+
+                <div>
+                    <span>CARTE DE VISITE</span>
+                    <h3>Business Card DECO COUSSIN</h3>
+                </div>
+
+            </div>
+
+
+            <div class="portfolio-gallery-item">
+
+                <img
+                    src="ChatGPT Image Sep 8, 2026, 12_11_52 AM.png"
+                    alt="Business Card 2"
+                >
+
+                <div>
+                    <span>CARTE DE VISITE</span>
+                    <h3>Business Card Design PURITYBIODO</h3>
+                </div>
+
+            </div>
+
+
+            <div class="portfolio-gallery-item">
+
+                <img
+                    src="ChatGPT Image Sep 8, 2026, 12_13_40 AM.png"
+                    alt="Business Card 3"
+                >
+
+                <div>
+                    <span>CARTE DE VISITE</span>
+                    <h3>Business Card Design ADBI MIKHWAR </h3>
+                </div>
+
+            </div>
+
+
+            <div class="portfolio-gallery-item">
+
+                <img
+                    src="ChatGPT Image Sep 8, 2026, 12_14_28 AM.png"
+                    alt="Business Card 4"
+                >
+
+                <div>
+                    <span>CARTE DE VISITE</span>
+                    <h3>Business Card Design L'MAALLEM</h3>
+                </div>
+
+            </div>
+
+
+            <div class="portfolio-gallery-item">
+
+                <img
+                    src="ChatGPT Image Sep 8, 2026, 12_15_53 AM.png"
+                    alt="Business Card 5"
+                >
+
+                <div>
+                    <span>CARTE DE VISITE</span>
+                    <h3>Business Card Design FIRE GUARD</h3>
+                </div>
+
+            </div>
+
+
+            <div class="portfolio-gallery-item">
+
+                <img
+                    src="ChatGPT Image Sep 8, 2026, 12_16_31 AM.png"
+                    alt="Business Card 6"
+                >
+
+                <div>
+                    <span>CARTE DE VISITE</span>
+                    <h3>Business Card Design ZAHIABI</h3>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ===================================
+     BRANDING GALLERY
+=================================== -->
+
+<div class="portfolio-modal" id="brandingModal" aria-hidden="true">
+
+    <div class="portfolio-modal-content">
+
+        <button class="portfolio-modal-close"
+                type="button"
+                onclick="closeGallery('brandingModal')">
+            ×
+        </button>
+
+        <div class="portfolio-gallery-header">
+
+            <span>● MES PROJETS</span>
+
+            <h2>
+                Branding &
+                <strong>Identité Visuelle.</strong>
+            </h2>
+
+            <p>
+                Découvrez mes projets de branding,
+                logos et identités visuelles.
+            </p>
+
+        </div>
+
+
+        <div class="portfolio-gallery-grid">
+
+
+            <div class="portfolio-gallery-item">
+                <img src="branding-1.jpg" alt="Branding 1">
+                <div>
+                    <span>BRANDING</span>
+                    <h3>Branding Design 01</h3>
+                </div>
+            </div>
+
+
+            <div class="portfolio-gallery-item">
+                <img src="branding-2.jpg" alt="Branding 2">
+                <div>
+                    <span>BRANDING</span>
+                    <h3>Branding Design 02</h3>
+                </div>
+            </div>
+
+
+            <div class="portfolio-gallery-item">
+                <img src="branding-3.jpg" alt="Branding 3">
+                <div>
+                    <span>BRANDING</span>
+                    <h3>Branding Design 03</h3>
+                </div>
+            </div>
+
+
+            <div class="portfolio-gallery-item">
+                <img src="branding-4.jpg" alt="Branding 4">
+                <div>
+                    <span>BRANDING</span>
+                    <h3>Branding Design 04</h3>
+                </div>
+            </div>
+
+
+            <div class="portfolio-gallery-item">
+                <img src="branding-5.jpg" alt="Branding 5">
+                <div>
+                    <span>BRANDING</span>
+                    <h3>Branding Design 05</h3>
+                </div>
+            </div>
+
+
+            <div class="portfolio-gallery-item">
+                <img src="branding-6.jpg" alt="Branding 6">
+                <div>
+                    <span>BRANDING</span>
+                    <h3>Branding Design 06</h3>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ===================================
+     IMAGE LIGHTBOX
+=================================== -->
+
+<div class="lightbox" id="lightbox">
+
+    <button class="lightbox-close" id="lightboxClose">
+        ×
+    </button>
+
+    <button class="lightbox-arrow lightbox-prev" id="lightboxPrev">
+        ‹
+    </button>
+
+    <div class="lightbox-content">
+
+        <img id="lightboxImage"
+             src=""
+             alt="Aperçu du projet">
+
+        <div class="lightbox-counter" id="lightboxCounter">
+            1 / 1
+        </div>
+
+    </div>
+
+    <button class="lightbox-arrow lightbox-next" id="lightboxNext">
+        ›
+    </button>
+
+</div>
+
+
+<!-- ===================================
+     STICKERS GALLERY
+=================================== -->
+
+<div class="portfolio-modal" id="stickersModal" aria-hidden="true">
+
+    <div class="portfolio-modal-content">
+
+        <button class="portfolio-modal-close"
+                type="button"
+                onclick="closeGallery('stickersModal')">
+            ×
+        </button>
+
+        <div class="portfolio-gallery-header">
+
+            <span>● MES PROJETS</span>
+
+            <h2>
+                Sticker
+                <strong>Designs.</strong>
+            </h2>
+
+            <p>
+                Découvrez mes créations de stickers,
+                étiquettes et supports adhésifs.
+            </p>
+
+        </div>
+
+
+        <div class="portfolio-gallery-grid">
+
+
+            <div class="portfolio-gallery-item">
+                <img src="sticker-1.jpg" alt="Sticker 1">
+                <div>
+                    <span>STICKERS</span>
+                    <h3>Sticker Design 01</h3>
+                </div>
+            </div>
+
+
+            <div class="portfolio-gallery-item">
+                <img src="sticker-2.jpg" alt="Sticker 2">
+                <div>
+                    <span>STICKERS</span>
+                    <h3>Sticker Design 02</h3>
+                </div>
+            </div>
+
+
+            <div class="portfolio-gallery-item">
+                <img src="sticker-3.jpg" alt="Sticker 3">
+                <div>
+                    <span>STICKERS</span>
+                    <h3>Sticker Design 03</h3>
+                </div>
+            </div>
+
+
+            <div class="portfolio-gallery-item">
+                <img src="sticker-4.jpg" alt="Sticker 4">
+                <div>
+                    <span>STICKERS</span>
+                    <h3>Sticker Design 04</h3>
+                </div>
+            </div>
+
+
+            <div class="portfolio-gallery-item">
+                <img src="sticker-5.jpg" alt="Sticker 5">
+                <div>
+                    <span>STICKERS</span>
+                    <h3>Sticker Design 05</h3>
+                </div>
+            </div>
+
+
+            <div class="portfolio-gallery-item">
+                <img src="sticker-6.jpg" alt="Sticker 6">
+                <div>
+                    <span>STICKERS</span>
+                    <h3>Sticker Design 06</h3>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     SERVICES
+========================= -->
+<section class="services section" id="services">
+
+    <div class="container">
+
+
+        <div class="center-heading reveal">
+
+            <div class="small-title">
+                ● MES SERVICES
+            </div>
+
+            <h2>
+                Ce que je peux
+                <span>créer pour vous.</span>
+            </h2>
+
+        </div>
+
+
+
+        <div class="services-grid">
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ✦
+                </div>
+
+                <span class="number">01</span>
+
+                <h3>
+                    Packaging Design
+                </h3>
+
+                <p>
+                    Création de packaging moderne et
+                    professionnel adapté à votre produit.
+                </p>
+
+                <a href="#contact">
+                    En savoir plus →
+                </a>
+
+            </div>
+
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ◇
+                </div>
+
+                <span class="number">02</span>
+
+                <h3>
+                    Identité Visuelle
+                </h3>
+
+                <p>
+                    Création d'une identité graphique
+                    cohérente et professionnelle pour
+                    votre marque.
+                </p>
+
+                <a href="#contact">
+                    En savoir plus →
+                </a>
+
+            </div>
+
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ▣
+                </div>
+
+                <span class="number">03</span>
+
+                <h3>
+                    Print Design
+                </h3>
+
+                <p>
+                    Cartes de visite, flyers,
+                    stickers, affiches et supports
+                    imprimés.
+                </p>
+
+                <a href="#contact">
+                    En savoir plus →
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+<!-- =========================
+     TOOLS / SOFTWARE
+========================= -->
+<section class="tools-section" id="tools">
+
+    <div class="container">
+
+        <div class="center-heading reveal">
+            <div class="small-title">
+                ● MES OUTILS
+            </div>
+
+            <h2>
+                Les outils que j'utilise
+                <span>au quotidien.</span>
+            </h2>
+        </div>
+
+        <div class="tools-grid adobe-tools-grid">
+
+            <div class="tool-card reveal">
+                <div class="adobe-logo adobe-ai" aria-label="Adobe Illustrator">
+                    <span>Ai</span>
+                </div>
+                <h3>Adobe Illustrator</h3>
+                <p>
+                    Logos, vectoriel, packaging, dielines
+                    et fichiers prêts pour impression.
+                </p>
+            </div>
+
+            <div class="tool-card reveal reveal-delay-1">
+                <div class="adobe-logo adobe-ps" aria-label="Adobe Photoshop">
+                    <span>Ps</span>
+                </div>
+                <h3>Adobe Photoshop</h3>
+                <p>
+                    Retouche, mockups, composition visuelle
+                    et présentation professionnelle.
+                </p>
+            </div>
+
+            <div class="tool-card reveal reveal-delay-2">
+                <div class="adobe-logo adobe-id" aria-label="Adobe InDesign">
+                    <span>Id</span>
+                </div>
+                <h3>Adobe InDesign</h3>
+                <p>
+                    Mise en page, catalogues, brochures
+                    et documents professionnels pour impression.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     ABOUT
+========================= -->
+<section class="about section" id="apropos">
+
+    <div class="container about-grid">
+
+
+        <div class="about-image">
+
+            <div class="blue-shape"></div>
+
+            <img src="Futuristic professional portrait with glowing ring.png"
+                 alt="Abdessamad Ait Taghzant">
+
+            <div class="experience">
+                <strong>CREATIVE</strong>
+                <span>Graphic Designer</span>
+            </div>
+
+        </div>
+
+
+
+        <div class="about-content">
+
+            <div class="small-title">
+                ● À PROPOS DE MOI
+            </div>
+
+
+            <h2>
+                Bonjour, je suis
+                <span>Abdessamad Ait Taghzant.</span>
+            </h2>
+
+
+            <p>
+                Je suis passionné par le design graphique,
+                le packaging et la création visuelle.
+            </p>
+
+
+            <p>
+                Mon objectif est de transformer chaque idée
+                en une création claire, moderne et professionnelle
+                qui permet à une marque de se démarquer.
+            </p>
+
+
+            <div class="skills">
+
+                <div>
+                    <strong>Packaging</strong>
+                    <span>Design & Dieline</span>
+                </div>
+
+                <div>
+                    <strong>Branding</strong>
+                    <span>Identité visuelle</span>
+                </div>
+
+                <div>
+                    <strong>Print</strong>
+                    <span>Supports imprimés</span>
+                </div>
+
+                <div>
+                    <strong>Graphic Design</strong>
+                    <span>Création visuelle</span>
+                </div>
+
+            </div>
+
+
+            <a href="#portfolio" class="btn-primary">
+                Découvrir mes créations →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+<!-- =========================
+     CONTACT FORM
+========================= -->
+<section class="contact-form-section" id="contact-form">
+
+    <div class="container contact-form-wrap">
+
+        <div class="contact-form-intro reveal">
+
+            <div class="small-title">
+                ● DEMANDE DE PROJET
+            </div>
+
+            <h2>
+                Parlez-moi de
+                <span>votre projet.</span>
+            </h2>
+
+            <p>
+                Remplissez ce formulaire. Le bouton ouvrira votre
+                application email avec votre demande déjà préparée.
+            </p>
+
+        </div>
+
+
+        <form class="contact-form-card reveal reveal-delay-1"
+              id="contactForm">
+
+            <div class="contact-form-grid">
+
+                <div class="contact-field">
+                    <label for="contactName">NOM</label>
+                    <input id="contactName"
+                           name="name"
+                           type="text"
+                           placeholder="Votre nom"
+                           required>
+                </div>
+
+                <div class="contact-field">
+                    <label for="contactPhone">TÉLÉPHONE</label>
+                    <input id="contactPhone"
+                           name="phone"
+                           type="tel"
+                           placeholder="06..."
+                           required>
+                </div>
+
+                <div class="contact-field">
+                    <label for="contactEmail">EMAIL</label>
+                    <input id="contactEmail"
+                           name="email"
+                           type="email"
+                           placeholder="votre@email.com">
+                </div>
+
+                <div class="contact-field">
+                    <label for="contactService">SERVICE</label>
+                    <select id="contactService"
+                            name="service"
+                            required>
+                        <option value="">Choisir</option>
+                        <option>Packaging Design</option>
+                        <option>Carte de visite</option>
+                        <option>Branding / Identité visuelle</option>
+                        <option>Stickers / Étiquettes</option>
+                        <option>Autre projet</option>
+                    </select>
+                </div>
+
+                <div class="contact-field full">
+                    <label for="contactMessage">MESSAGE</label>
+                    <textarea id="contactMessage"
+                              name="message"
+                              rows="6"
+                              placeholder="Décrivez votre projet..."
+                              required></textarea>
+                </div>
+
+            </div>
+
+            <button type="submit"
+                    class="contact-submit">
+                Envoyer la demande →
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     CONTACT
+========================= -->
+<section class="contact section" id="contact">
+
+    <div class="container contact-box">
+
+
+        <div class="contact-content">
+
+            <div class="small-title white-title">
+                ● UN PROJET EN TÊTE ?
+            </div>
+
+            <h2>
+                Créons quelque chose
+                <span>d'unique ensemble.</span>
+            </h2>
+
+            <p>
+                Vous avez besoin d'un design, d'un packaging
+                ou d'une identité visuelle ?
+                Contactez-moi pour discuter de votre projet.
+            </p>
+
+        </div>
+
+
+        <a href="https://wa.me/212676953815"
+           target="_blank"
+           class="contact-button">
+
+            Me contacter →
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+<footer>
+
+    <div class="container footer-grid">
+
+
+        <div>
+
+            <a href="#" class="footer-logo">
+                ABDESSAMAD
+                <span>AIT TAGHZANT</span>
+            </a>
+
+            <p>
+                Graphic & Packaging Designer
+            </p>
+
+        </div>
+
+
+        <div class="footer-menu">
+
+            <a href="#accueil">Accueil</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#services">Services</a>
+            <a href="#apropos">À propos</a>
+            <a href="#contact">Contact</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+        © 2026 Abdessamad Ait Taghzant — Tous droits réservés.
+    </div>
+
+</footer>
+
+
+<!-- WHATSAPP CTA -->
+
+<a href="https://wa.me/212676953815?text=Bonjour%20Abdessamad%2C%20je%20souhaite%20discuter%20d%27un%20projet."
+   target="_blank"
+   class="whatsapp-cta"
+   aria-label="Discuter sur WhatsApp">
+
+    <span class="wa-dot"></span>
+    <span class="wa-label">Discuter sur WhatsApp</span>
+
+</a>
+
+
+<script>
+
+/* ===================================
+   PORTFOLIO FILTER
+=================================== */
+
+const filterButtons = document.querySelectorAll(".filter-btn");
+const projects = document.querySelectorAll(".project");
+
+/* ===================================
+   PORTFOLIO SEARCH + FILTER
+=================================== */
+
+const portfolioSearch =
+    document.getElementById("portfolioSearch");
+
+const noResults =
+    document.getElementById("noResults");
+
+function applyPortfolioFilters(){
+
+    const activeButton =
+        document.querySelector(".filter-btn.active");
+
+    const activeCategory =
+        activeButton
+        ? activeButton.getAttribute("data-filter")
+        : "all";
+
+    const query =
+        portfolioSearch
+        ? portfolioSearch.value.trim().toLowerCase()
+        : "";
+
+    let visibleCount = 0;
+
+    projects.forEach(project => {
+
+        const category =
+            project.getAttribute("data-category") || "";
+
+        const searchText =
+            (
+                project.getAttribute("data-search") ||
+                project.textContent ||
+                ""
+            ).toLowerCase();
+
+        const matchesCategory =
+            activeCategory === "all" ||
+            category === activeCategory;
+
+        const matchesSearch =
+            !query ||
+            searchText.includes(query);
+
+        const shouldShow =
+            matchesCategory && matchesSearch;
+
+        project.style.display =
+            shouldShow ? "block" : "none";
+
+        if(shouldShow){
+            visibleCount++;
+        }
+
+    });
+
+    if(noResults){
+        noResults.style.display =
+            visibleCount === 0
+            ? "block"
+            : "none";
+    }
+
+}
+
+if(portfolioSearch){
+    portfolioSearch.addEventListener(
+        "input",
+        applyPortfolioFilters
+    );
+}
+
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", function() {
+
+        filterButtons.forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        this.classList.add("active");
+
+        applyPortfolioFilters();
+
+    });
+
+});
+
+
+/* ===================================
+   OPEN / CLOSE CATEGORY GALLERIES
+=================================== */
+
+function openGallery(modalId){
+
+    const modal =
+        document.getElementById(modalId);
+
+    if(!modal){
+        return;
+    }
+
+    modal.classList.add("show");
+
+    modal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+    document.body.style.overflow =
+        "hidden";
+}
+
+
+function closeGallery(modalId){
+
+    const modal =
+        document.getElementById(modalId);
+
+    if(!modal){
+        return;
+    }
+
+    modal.classList.remove("show");
+
+    modal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+    document.body.style.overflow =
+        "";
+}
+
+
+/* CLICK OUTSIDE MODAL TO CLOSE */
+
+document
+.querySelectorAll(".portfolio-modal")
+.forEach(modal => {
+
+    modal.addEventListener(
+        "click",
+        function(e){
+
+            if(e.target === this){
+
+                closeGallery(this.id);
+
+            }
+
+        }
+    );
+
+});
+
+
+/* ESC TO CLOSE */
+
+document.addEventListener(
+    "keydown",
+    function(e){
+
+        if(e.key === "Escape"){
+
+            document
+            .querySelectorAll(
+                ".portfolio-modal.show"
+            )
+            .forEach(modal => {
+
+                closeGallery(modal.id);
+
+            });
+
+        }
+
+    }
+);
+
+</script>
+
+<script>
+window.history.scrollRestoration = "manual";
+
+window.addEventListener("load", function () {
+    if (!window.location.hash) {
+        window.scrollTo(0, 0);
+    }
+});
+</script>
+
+
+<script>
+
+/* ===================================
+   IMAGE LIGHTBOX - BY CATEGORY
+=================================== */
+
+const lightbox =
+    document.getElementById("lightbox");
+
+const lightboxImage =
+    document.getElementById("lightboxImage");
+
+const lightboxClose =
+    document.getElementById("lightboxClose");
+
+const lightboxPrev =
+    document.getElementById("lightboxPrev");
+
+const lightboxNext =
+    document.getElementById("lightboxNext");
+
+const lightboxCounter =
+    document.getElementById("lightboxCounter");
+
+
+let currentGallery = [];
+let currentImageIndex = 0;
+
+
+/* ===================================
+   OPEN IMAGE FROM ITS OWN CATEGORY
+=================================== */
+
+document
+.querySelectorAll(".portfolio-modal .portfolio-gallery-item img")
+.forEach(image => {
+
+    image.style.cursor = "zoom-in";
+
+    image.addEventListener("click", function(){
+
+        const currentModal =
+            this.closest(".portfolio-modal");
+
+        if(!currentModal){
+            return;
+        }
+
+
+        /* Get ONLY the images inside the same category modal */
+        currentGallery = Array.from(
+            currentModal.querySelectorAll(
+                ".portfolio-gallery-item img"
+            )
+        );
+
+
+        currentImageIndex =
+            currentGallery.indexOf(this);
+
+
+        showCurrentLightboxImage();
+
+        lightbox.classList.add("show");
+
+        document.body.style.overflow =
+            "hidden";
+
+    });
+
+});
+
+
+/* ===================================
+   SHOW CURRENT IMAGE
+=================================== */
+
+function showCurrentLightboxImage(){
+
+    if(
+        !currentGallery.length ||
+        currentImageIndex < 0
+    ){
+        return;
+    }
+
+    const image =
+        currentGallery[currentImageIndex];
+
+    lightboxImage.src =
+        image.src;
+
+    lightboxImage.alt =
+        image.alt || "Projet";
+
+    lightboxCounter.textContent =
+        (currentImageIndex + 1)
+        + " / "
+        + currentGallery.length;
+
+}
+
+
+/* ===================================
+   NEXT IMAGE - SAME CATEGORY ONLY
+=================================== */
+
+function nextLightboxImage(){
+
+    if(!currentGallery.length){
+        return;
+    }
+
+    currentImageIndex =
+        (currentImageIndex + 1)
+        % currentGallery.length;
+
+    showCurrentLightboxImage();
+
+}
+
+
+/* ===================================
+   PREVIOUS IMAGE - SAME CATEGORY ONLY
+=================================== */
+
+function previousLightboxImage(){
+
+    if(!currentGallery.length){
+        return;
+    }
+
+    currentImageIndex =
+        (currentImageIndex - 1 + currentGallery.length)
+        % currentGallery.length;
+
+    showCurrentLightboxImage();
+
+}
+
+
+/* ===================================
+   CLOSE LIGHTBOX
+=================================== */
+
+function closeLightbox(){
+
+    lightbox.classList.remove("show");
+
+    lightboxImage.src = "";
+
+    /*
+      Keep page locked if a category modal is still open.
+      Otherwise restore normal page scrolling.
+    */
+    const openCategory =
+        document.querySelector(".portfolio-modal.show");
+
+    document.body.style.overflow =
+        openCategory ? "hidden" : "";
+
+}
+
+
+lightboxClose.addEventListener(
+    "click",
+    closeLightbox
+);
+
+
+lightboxNext.addEventListener(
+    "click",
+    nextLightboxImage
+);
+
+
+lightboxPrev.addEventListener(
+    "click",
+    previousLightboxImage
+);
+
+
+/* ===================================
+   CLICK DARK BACKGROUND TO CLOSE
+=================================== */
+
+lightbox.addEventListener(
+    "click",
+    function(e){
+
+        if(e.target === lightbox){
+            closeLightbox();
+        }
+
+    }
+);
+
+
+/* ===================================
+   KEYBOARD CONTROLS
+=================================== */
+
+document.addEventListener(
+    "keydown",
+    function(e){
+
+        if(
+            !lightbox.classList
+            .contains("show")
+        ){
+            return;
+        }
+
+
+        if(e.key === "Escape"){
+            closeLightbox();
+        }
+
+
+        if(e.key === "ArrowRight"){
+            nextLightboxImage();
+        }
+
+
+        if(e.key === "ArrowLeft"){
+            previousLightboxImage();
+        }
+
+    }
+);
+
+</script>
+
+
+
+<script>
+
+/* ===================================
+   DARK MODE
+=================================== */
+
+const themeToggle =
+    document.getElementById("themeToggle");
+
+const savedTheme =
+    localStorage.getItem("portfolio-theme");
+
+if(savedTheme === "dark"){
+    document.body.classList.add("dark-mode");
+}
+
+function updateThemeIcon(){
+
+    if(!themeToggle){
+        return;
+    }
+
+    themeToggle.textContent =
+        document.body.classList.contains("dark-mode")
+        ? "☀"
+        : "☾";
+
+}
+
+updateThemeIcon();
+
+if(themeToggle){
+
+    themeToggle.addEventListener("click", function(){
+
+        document.body.classList.toggle("dark-mode");
+
+        localStorage.setItem(
+            "portfolio-theme",
+            document.body.classList.contains("dark-mode")
+            ? "dark"
+            : "light"
+        );
+
+        updateThemeIcon();
+
+    });
+
+}
+
+
+/* ===================================
+   CONTACT FORM -> EMAIL
+=================================== */
+
+const contactForm =
+    document.getElementById("contactForm");
+
+if(contactForm){
+
+    contactForm.addEventListener("submit", function(e){
+
+        e.preventDefault();
+
+        const name =
+            document.getElementById("contactName").value.trim();
+
+        const phone =
+            document.getElementById("contactPhone").value.trim();
+
+        const email =
+            document.getElementById("contactEmail").value.trim();
+
+        const service =
+            document.getElementById("contactService").value;
+
+        const message =
+            document.getElementById("contactMessage").value.trim();
+
+        const subject =
+            (localStorage.getItem("portfolio-language") === "en" ? "Project request - " : "Demande de projet - ") + service;
+
+        const body =
+            "Bonjour Abdessamad,%0D%0A%0D%0A" +
+            "Nom : " + encodeURIComponent(name) + "%0D%0A" +
+            "Téléphone : " + encodeURIComponent(phone) + "%0D%0A" +
+            "Email : " + encodeURIComponent(email) + "%0D%0A" +
+            "Service : " + encodeURIComponent(service) + "%0D%0A%0D%0A" +
+            "Message :%0D%0A" +
+            encodeURIComponent(message);
+
+        window.location.href =
+            "mailto:aittaghzant7@gmail.com" +
+            "?subject=" + encodeURIComponent(subject) +
+            "&body=" + body;
+
+    });
+
+}
+
+
+/* ===================================
+   SCROLL ANIMATIONS
+=================================== */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+const revealObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add("visible");
+
+                    revealObserver.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold:0.12
+        }
+    );
+
+revealElements.forEach(element => {
+    revealObserver.observe(element);
+});
+
+</script>
+
+
+
+
+
+
+
+
+<script>
+/* ===== FULL SITE FR / EN - EVERY VISIBLE TEXT ===== */
+(function(){
+    const PAIRS = {"● GRAPHIC DESIGNER": ["● GRAPHIC DESIGNER", "● GRAPHIC DESIGNER"], "Disponible pour vos projets": ["Disponible pour vos projets", "Available for your projects"], "Accueil": ["Accueil", "Home"], "Portfolio": ["Portfolio", "Portfolio"], "Services": ["Services", "Services"], "À propos": ["À propos", "About"], "Contact": ["Contact", "Contact"], "↓ Download CV": ["↓ Télécharger le CV", "↓ Download CV"], "Download CV ↓": ["Télécharger le CV ↓", "Download CV ↓"], "Travaillons ensemble →": ["Travaillons ensemble →", "Let's work together →"], "GRAPHIC & PACKAGING DESIGNER": ["GRAPHIC & PACKAGING DESIGNER", "GRAPHIC & PACKAGING DESIGNER"], "Je transforme vos": ["Je transforme vos", "I turn your"], "idées en designs": ["idées en designs", "ideas into designs"], "qui marquent.": ["qui marquent.", "that make an impact."], "Création graphique, packaging, identité visuelle et supports imprimés pour donner à votre marque une image professionnelle et unique.": ["Création graphique, packaging, identité visuelle et supports imprimés pour donner à votre marque une image professionnelle et unique.", "Graphic design, packaging, visual identity and print materials to give your brand a professional and unique image."], "Voir mon portfolio →": ["Voir mon portfolio →", "View my portfolio →"], "Me contacter": ["Me contacter", "Contact me"], "Design": ["Design", "Design"], "Créatif": ["Créatif", "Creative"], "Print": ["Impression", "Print"], "Professionnel": ["Professionnel", "Professional"], "Personnalisé": ["Personnalisé", "Custom"], "Creative Designer": ["Designer créatif", "Creative Designer"], "Packaging • Branding • Print": ["Packaging • Branding • Impression", "Packaging • Branding • Print"], "● MES CRÉATIONS": ["● MES CRÉATIONS", "● MY WORK"], "Découvrez mon": ["Découvrez mon", "Discover my"], "portfolio.": ["portfolio.", "portfolio."], "Une sélection de mes créations graphiques, projets packaging et supports de communication.": ["Une sélection de mes créations graphiques, projets packaging et supports de communication.", "A selection of my graphic design, packaging and communication projects."], "Tous": ["Tous", "All"], "Packaging": ["Packaging", "Packaging"], "Cartes de visite": ["Cartes de visite", "Business Cards"], "Branding": ["Branding", "Branding"], "Stickers": ["Stickers", "Stickers"], "PACKAGING": ["PACKAGING", "PACKAGING"], "Packaging Design": ["Design Packaging", "Packaging Design"], "CARTE DE VISITE": ["CARTE DE VISITE", "BUSINESS CARD"], "Business Card Design": ["Design de carte de visite", "Business Card Design"], "BRANDING": ["BRANDING", "BRANDING"], "Branding & Identité Visuelle": ["Branding & Identité Visuelle", "Branding & Visual Identity"], "STICKERS": ["STICKERS", "STICKERS"], "Sticker Design": ["Design de sticker", "Sticker Design"], "Aucun projet ne correspond à votre recherche.": ["Aucun projet ne correspond à votre recherche.", "No project matches your search."], "● MES PROJETS": ["● MES PROJETS", "● MY PROJECTS"], "Designs.": ["Designs.", "Designs."], "Découvrez mes créations de packaging, boîtes produits et présentations mockup.": ["Découvrez mes créations de packaging, boîtes produits et présentations mockup.", "Discover my packaging creations, product boxes and mockup presentations."], "Packaging Cosmétique": ["Packaging Cosmétique", "Cosmetic Packaging"], "Box Premium": ["Boîte Premium", "Premium Box"], "Packaging Parfum": ["Packaging Parfum", "Perfume Packaging"], "Packaging Premium": ["Packaging Premium", "Premium Packaging"], "Packaging Design 05": ["Design Packaging 05", "Packaging Design 05"], "Packaging Design 06": ["Design Packaging 06", "Packaging Design 06"], "Business Card": ["Carte de visite", "Business Card"], "Découvrez une sélection de mes créations de cartes de visite.": ["Découvrez une sélection de mes créations de cartes de visite.", "Discover a selection of my business card designs."], "Business Card DECO COUSSIN": ["Carte de visite DECO COUSSIN", "Business Card DECO COUSSIN"], "Business Card Design PURITYBIODO": ["Carte de visite PURITYBIODO", "Business Card Design PURITYBIODO"], "Business Card Design ADBI MIKHWAR": ["Carte de visite ADBI MIKHWAR", "Business Card Design ADBI MIKHWAR"], "Business Card Design L'MAALLEM": ["Carte de visite L'MAALLEM", "Business Card Design L'MAALLEM"], "Business Card Design FIRE GUARD": ["Carte de visite FIRE GUARD", "Business Card Design FIRE GUARD"], "Business Card Design ZAHIABI": ["Carte de visite ZAHIABI", "Business Card Design ZAHIABI"], "Branding &": ["Branding &", "Branding &"], "Identité Visuelle.": ["Identité Visuelle.", "Visual Identity."], "Découvrez mes projets de branding, logos et identités visuelles.": ["Découvrez mes projets de branding, logos et identités visuelles.", "Discover my branding, logo and visual identity projects."], "Branding Design 01": ["Design Branding 01", "Branding Design 01"], "Branding Design 02": ["Design Branding 02", "Branding Design 02"], "Branding Design 03": ["Design Branding 03", "Branding Design 03"], "Branding Design 04": ["Design Branding 04", "Branding Design 04"], "Branding Design 05": ["Design Branding 05", "Branding Design 05"], "Branding Design 06": ["Design Branding 06", "Branding Design 06"], "Sticker": ["Sticker", "Sticker"], "Découvrez mes créations de stickers, étiquettes et supports adhésifs.": ["Découvrez mes créations de stickers, étiquettes et supports adhésifs.", "Discover my sticker, label and adhesive design projects."], "Sticker Design 01": ["Design Sticker 01", "Sticker Design 01"], "Sticker Design 02": ["Design Sticker 02", "Sticker Design 02"], "Sticker Design 03": ["Design Sticker 03", "Sticker Design 03"], "Sticker Design 04": ["Design Sticker 04", "Sticker Design 04"], "Sticker Design 05": ["Design Sticker 05", "Sticker Design 05"], "Sticker Design 06": ["Design Sticker 06", "Sticker Design 06"], "● MES SERVICES": ["● MES SERVICES", "● MY SERVICES"], "Ce que je peux": ["Ce que je peux", "What I can"], "créer pour vous.": ["créer pour vous.", "create for you."], "01": ["01", "01"], "Création de packaging moderne et professionnel adapté à votre produit.": ["Création de packaging moderne et professionnel adapté à votre produit.", "Modern and professional packaging design tailored to your product."], "En savoir plus →": ["En savoir plus →", "Learn more →"], "02": ["02", "02"], "Identité Visuelle": ["Identité Visuelle", "Visual Identity"], "Création d'une identité graphique cohérente et professionnelle pour votre marque.": ["Création d'une identité graphique cohérente et professionnelle pour votre marque.", "Creation of a consistent and professional visual identity for your brand."], "03": ["03", "03"], "Print Design": ["Design d'impression", "Print Design"], "Cartes de visite, flyers, stickers, affiches et supports imprimés.": ["Cartes de visite, flyers, stickers, affiches et supports imprimés.", "Business cards, flyers, stickers, posters and printed materials."], "● MES OUTILS": ["● MES OUTILS", "● MY TOOLS"], "Les outils que j'utilise": ["Les outils que j'utilise", "The tools I use"], "au quotidien.": ["au quotidien.", "every day."], "Adobe Illustrator": ["Adobe Illustrator", "Adobe Illustrator"], "Logos, vectoriel, packaging, dielines et fichiers prêts pour impression.": ["Logos, vectoriel, packaging, tracés de découpe et fichiers prêts pour impression.", "Logos, vector artwork, packaging, dielines and print-ready files."], "Adobe Photoshop": ["Adobe Photoshop", "Adobe Photoshop"], "Retouche, mockups, composition visuelle et présentation professionnelle.": ["Retouche, mockups, composition visuelle et présentation professionnelle.", "Photo editing, mockups, visual composition and professional presentation."], "Adobe InDesign": ["Adobe InDesign", "Adobe InDesign"], "Mise en page, catalogues, brochures et documents professionnels pour impression.": ["Mise en page, catalogues, brochures et documents professionnels pour impression.", "Layout design, catalogues, brochures and professional print documents."], "CREATIVE": ["CRÉATIF", "CREATIVE"], "Graphic Designer": ["Graphiste", "Graphic Designer"], "● À PROPOS DE MOI": ["● À PROPOS DE MOI", "● ABOUT ME"], "Bonjour, je suis": ["Bonjour, je suis", "Hello, I'm"], "Abdessamad Ait Taghzant.": ["Abdessamad Ait Taghzant.", "Abdessamad Ait Taghzant."], "Je suis passionné par le design graphique, le packaging et la création visuelle.": ["Je suis passionné par le design graphique, le packaging et la création visuelle.", "I'm passionate about graphic design, packaging and visual creation."], "Mon objectif est de transformer chaque idée en une création claire, moderne et professionnelle qui permet à une marque de se démarquer.": ["Mon objectif est de transformer chaque idée en une création claire, moderne et professionnelle qui permet à une marque de se démarquer.", "My goal is to turn every idea into a clear, modern and professional design that helps a brand stand out."], "Design & Dieline": ["Design & Tracé de découpe", "Design & Dieline"], "Identité visuelle": ["Identité visuelle", "Visual identity"], "Supports imprimés": ["Supports imprimés", "Printed materials"], "Graphic Design": ["Design graphique", "Graphic Design"], "Création visuelle": ["Création visuelle", "Visual creation"], "Découvrir mes créations →": ["Découvrir mes créations →", "Discover my work →"], "● DEMANDE DE PROJET": ["● DEMANDE DE PROJET", "● PROJECT REQUEST"], "Parlez-moi de": ["Parlez-moi de", "Tell me about"], "votre projet.": ["votre projet.", "your project."], "Remplissez ce formulaire. Le bouton ouvrira votre application email avec votre demande déjà préparée.": ["Remplissez ce formulaire. Le bouton ouvrira votre application email avec votre demande déjà préparée.", "Fill out this form. The button will open your email app with your request already prepared."], "NOM": ["NOM", "NAME"], "TÉLÉPHONE": ["TÉLÉPHONE", "PHONE"], "EMAIL": ["EMAIL", "EMAIL"], "SERVICE": ["SERVICE", "SERVICE"], "Choisir": ["Choisir", "Choose"], "Carte de visite": ["Carte de visite", "Business Card"], "Branding / Identité visuelle": ["Branding / Identité visuelle", "Branding / Visual Identity"], "Stickers / Étiquettes": ["Stickers / Étiquettes", "Stickers / Labels"], "Autre projet": ["Autre projet", "Other project"], "MESSAGE": ["MESSAGE", "MESSAGE"], "Envoyer la demande →": ["Envoyer la demande →", "Send request →"], "● UN PROJET EN TÊTE ?": ["● UN PROJET EN TÊTE ?", "● HAVE A PROJECT IN MIND?"], "Créons quelque chose": ["Créons quelque chose", "Let's create something"], "d'unique ensemble.": ["d'unique ensemble.", "unique together."], "Vous avez besoin d'un design, d'un packaging ou d'une identité visuelle ? Contactez-moi pour discuter de votre projet.": ["Vous avez besoin d'un design, d'un packaging ou d'une identité visuelle ? Contactez-moi pour discuter de votre projet.", "Need a design, packaging or visual identity? Contact me to discuss your project."], "Me contacter →": ["Me contacter →", "Contact me →"], "Graphic & Packaging Designer": ["Graphiste & Designer Packaging", "Graphic & Packaging Designer"], "© 2026 Abdessamad Ait Taghzant — Tous droits réservés.": ["© 2026 Abdessamad Ait Taghzant — Tous droits réservés.", "© 2026 Abdessamad Ait Taghzant — All rights reserved."], "Discuter sur WhatsApp": ["Discuter sur WhatsApp", "Chat on WhatsApp"]};
+    const ATTRS = {"Rechercher un projet...": ["Rechercher un projet...", "Search a project..."], "Votre nom": ["Votre nom", "Your name"], "Décrivez votre projet...": ["Décrivez votre projet...", "Describe your project..."], "Changer le thème": ["Changer le thème", "Change theme"], "Changer la langue / Change language": ["Changer la langue", "Change language"], "Français": ["Français", "French"], "English": ["Anglais", "English"], "Rechercher un projet": ["Rechercher un projet", "Search a project"], "Aperçu du projet": ["Aperçu du projet", "Project preview"]};
+    const textItems = [];
+    const attrItems = [];
+
+    function norm(s){
+        return (s || "").replace(/\s+/g, " ").trim();
+    }
+
+    function registerText(){
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+        while(walker.nextNode()){
+            const node = walker.currentNode;
+            const parent = node.parentElement;
+            if(!parent || ["SCRIPT","STYLE","NOSCRIPT"].includes(parent.tagName)) continue;
+
+            const key = norm(node.nodeValue);
+            if(!key || !PAIRS[key]) continue;
+
+            textItems.push({
+                node: node,
+                fr: PAIRS[key][0],
+                en: PAIRS[key][1]
+            });
+        }
+
+        ["placeholder","title","aria-label","alt"].forEach(attr => {
+            document.querySelectorAll("[" + attr + "]").forEach(el => {
+                const value = norm(el.getAttribute(attr));
+                if(ATTRS[value]){
+                    attrItems.push({
+                        el: el,
+                        attr: attr,
+                        fr: ATTRS[value][0],
+                        en: ATTRS[value][1]
+                    });
+                }
+            });
+        });
+    }
+
+    function applyLanguage(lang){
+        textItems.forEach(item => {
+            item.node.nodeValue = lang === "en" ? item.en : item.fr;
+        });
+
+        attrItems.forEach(item => {
+            item.el.setAttribute(item.attr, lang === "en" ? item.en : item.fr);
+        });
+
+        document.documentElement.lang = lang;
+        localStorage.setItem("portfolio-language", lang);
+
+        const fr = document.getElementById("langFR");
+        const en = document.getElementById("langEN");
+        if(fr) fr.classList.toggle("active", lang === "fr");
+        if(en) en.classList.toggle("active", lang === "en");
+    }
+
+    registerText();
+
+    document.getElementById("langFR")?.addEventListener("click", () => applyLanguage("fr"));
+    document.getElementById("langEN")?.addEventListener("click", () => applyLanguage("en"));
+
+    window.portfolioSetLanguage = applyLanguage;
+    applyLanguage(localStorage.getItem("portfolio-language") || "fr");
+})();
+</script>
+
+</body>
+</html>
