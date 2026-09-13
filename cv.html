@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Abdessamad Ait Taghzant</title>
+<link rel="icon" href="images/my logo white.png">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#07182a; --navy2:#0c2239; --blue:#1687d8;
+  --text:#132a43; --muted:#64788d; --line:#dbe6ef; --bg:#f5f9fd; --card:#fff;
+}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+a{text-decoration:none;color:inherit}
+.topbar{background:#0b376d;color:#fff;padding:10px 6%;display:flex;justify-content:space-between;font-size:13px}
+nav{height:92px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 6%;position:sticky;top:0;z-index:20}
+.brand{display:flex;align-items:center;gap:13px}
+.brand img{width:58px;height:58px;object-fit:contain}
+.brand strong{display:block;color:#0875c6;font-size:20px}
+.brand span{font-size:11px;letter-spacing:2px;color:#71869a}
+.nav-actions{display:flex;gap:10px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 18px;border-radius:11px;border:1px solid #b9d2e8;background:#fff;color:#0b376d;font-weight:800;font-size:13px}
+.btn.primary{background:linear-gradient(135deg,#075fae,#1687d8);color:#fff;border:none}
+.page{max-width:1180px;margin:42px auto;padding:0 24px 60px}
+.cv{background:var(--card);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 25px 70px rgba(7,54,100,.10)}
+.cv-head{padding:46px 48px;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;border-bottom:1px solid var(--line)}
+.name h1{font-size:48px;line-height:.98;color:#102a46;letter-spacing:1px}
+.name h1 span{font-weight:400}
+.name h2{margin-top:17px;font-size:16px;letter-spacing:6px;font-weight:500}
+.tagline{margin-top:28px;color:#71869a;letter-spacing:4px;font-size:11px}
+.blue-line{width:64px;height:4px;background:var(--blue);margin-top:22px}
+.contact{border-left:1px solid var(--line);padding-left:42px;display:grid;gap:16px;align-content:center}
+.contact-row{display:grid;grid-template-columns:34px 1fr;align-items:center;gap:12px;font-size:14px}
+.icon{width:30px;height:30px;border-radius:8px;background:#eaf5fd;color:#075fae;display:flex;align-items:center;justify-content:center;font-weight:900}
+.cv-body{display:grid;grid-template-columns:34% 66%}
+.sidebar{padding:42px 34px;border-right:1px solid var(--line)}
+.main{padding:42px 42px}
+.section{margin-bottom:38px}
+.section-title{font-size:15px;letter-spacing:4px;text-transform:uppercase;color:#102a46;font-weight:900;margin-bottom:24px}
+.section-title:after{content:"";display:block;width:48px;height:3px;background:#102a46;margin-top:10px}
+.list{display:grid;gap:10px;font-size:14px}
+.software{display:grid;gap:15px}
+.software-item{display:flex;align-items:center;gap:13px}
+.app{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;border:2px solid currentColor}
+.ai{background:#2b1400;color:#ff9a00}.ps{background:#001e36;color:#31a8ff}.id{background:#49021f;color:#ff3366}
+.lang{display:flex;justify-content:space-between;gap:15px;border-bottom:1px dashed #e1e9f0;padding-bottom:7px}
+.about{font-size:14px;color:#314a61}
+.timeline{position:relative;padding-left:28px}
+.timeline:before{content:"";position:absolute;left:5px;top:8px;bottom:0;width:1px;background:#b9c9d7}
+.timeline:after{content:"";position:absolute;left:0;top:5px;width:11px;height:11px;border-radius:50%;background:#102a46}
+.role-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
+.role h3{font-size:18px;color:#102a46}
+.role .company{color:#1687d8;font-weight:800;margin:4px 0 14px}
+.date{text-align:right;font-size:12px;color:#50677d;white-space:nowrap}
+.bullets{padding-left:18px;font-size:13px;color:#314a61;display:grid;gap:5px}
+.edu{display:flex;justify-content:space-between;gap:20px}
+.edu strong{color:#102a46}
+.small{font-size:12px;color:#71869a;margin-top:3px}
+.additional{display:grid;grid-template-columns:120px 1fr;gap:12px;font-size:13px}
+.additional strong{color:#102a46}
+.bottom-cta{padding:30px 48px;background:#f7fbff;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:20px}
+.bottom-cta h3{color:#102a46}
+@media(max-width:800px){
+ .topbar{display:none} nav{height:auto;padding:15px 20px}.brand strong{font-size:16px}
+ .nav-actions .home-label{display:none}.page{margin-top:20px;padding:0 12px 30px}
+ .cv-head,.cv-body{grid-template-columns:1fr}.cv-head{padding:32px 25px}.name h1{font-size:36px}
+ .contact{border-left:0;border-top:1px solid var(--line);padding:25px 0 0}
+ .sidebar{border-right:0;border-bottom:1px solid var(--line);padding:30px 25px}.main{padding:30px 25px}
+ .role-head,.edu,.bottom-cta{flex-direction:column}.date{text-align:left}
+}
+@media print{
+ body{background:#fff}.topbar,nav,.bottom-cta{display:none}.page{margin:0;max-width:none;padding:0}.cv{border:0;border-radius:0;box-shadow:none}
+}
+
+/* =========================
+   DARK MODE
+========================= */
+body.dark-mode{
+  --navy:#eaf4ff;
+  --navy2:#0c2239;
+  --blue:#31a7ff;
+  --text:#eef6ff;
+  --muted:#a9bdd0;
+  --line:#1f3a55;
+  --bg:#07111d;
+  --card:#0d1d31;
+  background:#07111d;
+  color:#eef6ff;
+}
+
+body.dark-mode nav{
+  background:#091827;
+  border-color:#1f3a55;
+}
+
+body.dark-mode .brand strong{
+  color:#31a7ff;
+}
+
+body.dark-mode .brand span,
+body.dark-mode .tagline,
+body.dark-mode .small,
+body.dark-mode .date{
+  color:#a9bdd0;
+}
+
+body.dark-mode .cv{
+  background:#0d1d31;
+  border-color:#1f3a55;
+  box-shadow:0 25px 70px rgba(0,0,0,.35);
+}
+
+body.dark-mode .cv-head,
+body.dark-mode .sidebar,
+body.dark-mode .bottom-cta{
+  border-color:#1f3a55;
+}
+
+body.dark-mode .sidebar,
+body.dark-mode .main{
+  background:#0d1d31;
+}
+
+body.dark-mode .name h1,
+body.dark-mode .name h2,
+body.dark-mode .section-title,
+body.dark-mode .role h3,
+body.dark-mode .edu strong,
+body.dark-mode .additional strong,
+body.dark-mode .bottom-cta h3{
+  color:#ffffff;
+}
+
+body.dark-mode .section-title:after{
+  background:#31a7ff;
+}
+
+body.dark-mode .about,
+body.dark-mode .bullets,
+body.dark-mode .list,
+body.dark-mode .software-item,
+body.dark-mode .additional{
+  color:#d7e4ef;
+}
+
+body.dark-mode .contact{
+  border-color:#1f3a55;
+}
+
+body.dark-mode .contact-row{
+  color:#eef6ff;
+}
+
+body.dark-mode .icon{
+  background:#102b45;
+  color:#7bc7ff;
+}
+
+body.dark-mode .lang{
+  border-color:#244766;
+}
+
+body.dark-mode .timeline:before{
+  background:#35536e;
+}
+
+body.dark-mode .timeline:after{
+  background:#31a7ff;
+}
+
+body.dark-mode .bottom-cta{
+  background:#091827;
+}
+
+body.dark-mode .btn{
+  background:#10243a;
+  color:#ffffff;
+  border-color:#2d4d69;
+}
+
+body.dark-mode .btn:hover{
+  border-color:#31a7ff;
+}
+
+body.dark-mode .btn.primary{
+  background:linear-gradient(135deg,#075fae,#1687d8);
+  color:#fff;
+  border:none;
+}
+
+/* Theme button */
+.theme-toggle-cv{
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  border:1px solid #b9d2e8;
+  background:#fff;
+  color:#0b376d;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-size:19px;
+  font-weight:800;
+  transition:.25s ease;
+}
+
+.theme-toggle-cv:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 22px rgba(7,95,174,.16);
+}
+
+body.dark-mode .theme-toggle-cv{
+  background:#10243a;
+  color:#7bc7ff;
+  border-color:#2d4d69;
+}
+
+@media print{
+  body.dark-mode,
+  body.dark-mode .cv,
+  body.dark-mode .sidebar,
+  body.dark-mode .main{
+    background:#fff !important;
+    color:#132a43 !important;
+  }
+
+  body.dark-mode .name h1,
+  body.dark-mode .name h2,
+  body.dark-mode .section-title,
+  body.dark-mode .role h3,
+  body.dark-mode .edu strong,
+  body.dark-mode .additional strong{
+    color:#102a46 !important;
+  }
+
+  body.dark-mode .about,
+  body.dark-mode .bullets,
+  body.dark-mode .list,
+  body.dark-mode .software-item,
+  body.dark-mode .additional{
+    color:#314a61 !important;
+  }
+}
+
+
+.contact-row a{
+  color:inherit;
+  text-decoration:none;
+  word-break:break-word;
+}
+.contact-row a:hover{
+  color:#1687d8;
+  text-decoration:underline;
+}
+body.dark-mode .contact-row a:hover{
+  color:#31a7ff;
+}
+
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span>● GRAPHIC DESIGNER &nbsp;&nbsp; | &nbsp;&nbsp; Disponible pour vos projets</span>
+  <span>aittaghzant7@gmail.com &nbsp;&nbsp; • &nbsp;&nbsp; 06 76 95 38 15</span>
+</div>
+
+<nav>
+  <a class="brand" href="index.html">
+    <img src="images/my logo.png" alt="Logo Abdessamad">
+    <div><strong>ABDESSAMAD</strong><span>AIT TAGHZANT</span></div>
+  </a>
+  <div class="nav-actions">
+    <a class="btn" href="index.html"><span class="home-label">← Retour au portfolio</span></a>
+        <button class="theme-toggle-cv" id="cvThemeToggle" type="button" aria-label="Changer le thème">☾</button>
+<button class="btn primary" onclick="window.print()">↓ Télécharger PDF</button>
+  </div>
+</nav>
+
+<main class="page">
+<section class="cv">
+  <div class="cv-head">
+    <div class="name">
+      <h1>ABDESSAMAD<br><span>AIT TAGHZANT</span></h1>
+      <h2>GRAPHIC DESIGNER</h2>
+      <div class="blue-line"></div>
+      <div class="tagline">IDEAS • DESIGN • PRINT • IMPACT</div>
+    </div>
+    <div class="contact">
+      <div class="contact-row"><div class="icon">☎</div><div>0676953815</div></div>
+      <div class="contact-row"><div class="icon">✉</div><div>aittaghzant7@gmail.com</div></div>
+      <div class="contact-row"><div class="icon">●</div><div>Settat, Morocco</div></div>
+      <div class="contact-row"><div class="icon">in</div><div><a href="https://www.linkedin.com/in/abdessamad-ait-taghzant-241886427/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BzX96hMy0TAOJxktWUvxLNA%3D%3D" target="_blank" rel="noopener noreferrer">linkedin.com/in/abdessamad-ait-taghzant-241886427</a></div></div>
+    </div>
+  </div>
+
+  <div class="cv-body">
+    <aside class="sidebar">
+      <div class="section">
+        <div class="section-title">Skills</div>
+        <div class="list">
+          <span>Graphic Design</span><span>Branding & Visual Identity</span>
+          <span>Packaging Design</span><span>Print Design</span>
+          <span>Social Media Visuals</span><span>Photo Editing</span>
+          <span>Layout & Typography</span><span>Creativity & Problem Solving</span>
+          <span>Time Management</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Software</div>
+        <div class="software">
+          <div class="software-item"><div class="app ai">Ai</div><span>Adobe Illustrator</span></div>
+          <div class="software-item"><div class="app ps">Ps</div><span>Adobe Photoshop</span></div>
+          <div class="software-item"><div class="app id">Id</div><span>Adobe InDesign</span></div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Languages</div>
+        <div class="list">
+          <div class="lang"><span>English</span><span>Fluent</span></div>
+          <div class="lang"><span>French</span><span>Good</span></div>
+          <div class="lang"><span>Arabic</span><span>Native</span></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="main">
+      <div class="section">
+        <div class="section-title">About Me</div>
+        <p class="about">Creative and detail-oriented Graphic Designer with a passion for visual communication and print design. Specialized in packaging, branding and digital visuals. Always eager to learn, create and deliver high-quality designs that meet client needs and make a real impact.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Work Experience</div>
+        <div class="timeline">
+          <div class="role-head">
+            <div class="role"><h3>Graphic Designer</h3><div class="company">BOX & INK</div></div>
+            <div class="date"><strong>Jun 2026 – Present</strong><br>Settat, Morocco</div>
+          </div>
+          <ul class="bullets">
+            <li>Design packaging (boxes, labels, stickers) for various products.</li>
+            <li>Create business cards, flyers, posters and other print materials.</li>
+            <li>Develop visual content for social media (Instagram, Facebook, TikTok).</li>
+            <li>Prepare print files (dielines, bleed, CMYK) and ensure high-quality output.</li>
+            <li>Work with clients to understand their needs and deliver creative solutions.</li>
+            <li>Use Adobe Illustrator, Photoshop and InDesign to create professional designs.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Education</div>
+        <div class="edu">
+          <div>
+            <strong>Specialized Technician Diploma in Computer Graphics</strong>
+            <div class="small">OFPPT – Office of Vocational Training and Employment Promotion</div>
+          </div>
+          <div class="date"><strong>Sep 2024 – Jun 2026</strong><br>Settat, Morocco</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Additional Information</div>
+        <div class="additional">
+          <strong>Availability</strong><span>Part-time (20 hours/week or as required)</span>
+          <strong>Location</strong><span>Settat, Morocco</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-cta">
+    <div><h3>Design Better Tomorrow.</h3><div class="small">Creative solutions for real brands.</div></div>
+    <a class="btn primary" href="mailto:aittaghzant7@gmail.com">Contactez-moi →</a>
+  </div>
+</section>
+</main>
+
+<script>
+const cvThemeToggle = document.getElementById("cvThemeToggle");
+
+const savedCvTheme =
+  localStorage.getItem("portfolio-theme");
+
+if(savedCvTheme === "dark"){
+  document.body.classList.add("dark-mode");
+}
+
+function updateCvThemeIcon(){
+  if(!cvThemeToggle) return;
+
+  cvThemeToggle.textContent =
+    document.body.classList.contains("dark-mode")
+    ? "☀"
+    : "☾";
+}
+
+updateCvThemeIcon();
+
+if(cvThemeToggle){
+  cvThemeToggle.addEventListener("click", function(){
+
+    document.body.classList.toggle("dark-mode");
+
+    localStorage.setItem(
+      "portfolio-theme",
+      document.body.classList.contains("dark-mode")
+      ? "dark"
+      : "light"
+    );
+
+    updateCvThemeIcon();
+  });
+}
+</script>
+
+</body>
+</html>
